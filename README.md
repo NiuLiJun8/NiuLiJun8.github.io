@@ -1,3 +1,3 @@
-# Headline
+# L.J Niu's Notes
 
-> An awesome project.
+> stay tuned~!
