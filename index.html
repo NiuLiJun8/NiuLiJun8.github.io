@@ -76,13 +76,7 @@
         color:'rgb(90,90,90)',
         language:'chinese'
       },
-      Valine: {
-        appId: '需要自行创建leancloud服务', //leancloud可以作为应用服务，用于存储评论数据
-        appKey: '需要自行创建leancloud服务', 
-        recordIP: true,
-        visitor: true,
-        placeholder: "欢迎留言，互链~",
-      },
+
       //------不常用配置------
       formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}', // 配置日期格式，文章中需要使用{docsify-updated}引用变量
       // homepage: "Home.md", // 默认将README.md作为首页渲染，也可以自定义渲染首页
@@ -92,29 +86,6 @@
       // mergeNavbar: true, // 小屏幕设备合并导航栏到侧边栏
       // externalLinkTarget: '_self', // 文章中外部链接跳转方式，默认为_blank，打开新标签页
 
-      // 自定义插件
-      plugins: [
-        function(hook, vm) {
-          // 每次路由切换时数据全部加载完成后调用，没有参数。
-          hook.doneEach(function() {
-            // 判断cover元素是否显示，避免重复加载
-            if(document.getElementsByClassName("cover show").length != 0) {
-              // 封面添加每日一言
-              fetch('https://v1.hitokoto.cn')
-              .then(response => response.json())
-              .then(data => {
-                hitokoto.innerHTML = data.hitokoto
-                if(data.from_who != null) {
-                  hitokotofrom.innerHTML ='——' + data.from_who + ' 《' + data.from + '》'
-                } else {
-                  hitokotofrom.innerHTML ='——《' + data.from + '》' 
-                }
-              })
-              .catch(console.error)
-            }
-          });
-        }
-      ]
     }
   </script>
   <!-- Docsify v4 -->
